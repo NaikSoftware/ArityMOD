@@ -10,81 +10,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="60bf85f7-7535-405b-afb8-3a6823c91d47" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/icon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/icon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/outputFileStates.bin" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/.name" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Arity.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/arity_2_1_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build.gradle" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/build.gradle" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gradlew.bat" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gradlew" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/import-summary.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/settings.gradle" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ant.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/proguard-project.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project.properties" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/assets/help.html" afterPath="$PROJECT_DIR$/app/src/main/assets/help.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/arity-2.1.6.jar" afterPath="$PROJECT_DIR$/app/libs/arity-2.1.6.jar" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/color/result.xml" afterPath="$PROJECT_DIR$/app/src/main/res/color/result.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/drawable/delete.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/delete.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/drawable/enter.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/enter.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/drawable/icon.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/old_icon.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/layout-land/keyboard.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout-land/keyboard.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/layout-port/keyboard.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout-port/keyboard.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/layout/history_line.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/history_line.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/layout/main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/main.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/menu/defs.xml" afterPath="$PROJECT_DIR$/app/src/main/res/menu/defs.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/menu/graph.xml" afterPath="$PROJECT_DIR$/app/src/main/res/menu/graph.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/menu/main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/menu/main.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/values/arrays.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/arrays.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/xml/settings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/xml/settings.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ua/naiksoftware/aritymod/CalculatorEditable.java" afterPath="$PROJECT_DIR$/app/src/main/java/ua/naiksoftware/aritymod/CalculatorEditable.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ua/naiksoftware/aritymod/Data.java" afterPath="$PROJECT_DIR$/app/src/main/java/ua/naiksoftware/aritymod/Data.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ua/naiksoftware/aritymod/Defs.java" afterPath="$PROJECT_DIR$/app/src/main/java/ua/naiksoftware/aritymod/Defs.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ua/naiksoftware/aritymod/FPS.java" afterPath="$PROJECT_DIR$/app/src/main/java/ua/naiksoftware/aritymod/FPS.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ua/naiksoftware/aritymod/FileHandler.java" afterPath="$PROJECT_DIR$/app/src/main/java/ua/naiksoftware/aritymod/FileHandler.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ua/naiksoftware/aritymod/GLView.java" afterPath="$PROJECT_DIR$/app/src/main/java/ua/naiksoftware/aritymod/GLView.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ua/naiksoftware/aritymod/Graph3d.java" afterPath="$PROJECT_DIR$/app/src/main/java/ua/naiksoftware/aritymod/Graph3d.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ua/naiksoftware/aritymod/Graph3dView.java" afterPath="$PROJECT_DIR$/app/src/main/java/ua/naiksoftware/aritymod/Graph3dView.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ua/naiksoftware/aritymod/GraphView.java" afterPath="$PROJECT_DIR$/app/src/main/java/ua/naiksoftware/aritymod/GraphView.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ua/naiksoftware/aritymod/Grapher.java" afterPath="$PROJECT_DIR$/app/src/main/java/ua/naiksoftware/aritymod/Grapher.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ua/naiksoftware/aritymod/Help.java" afterPath="$PROJECT_DIR$/app/src/main/java/ua/naiksoftware/aritymod/Help.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ua/naiksoftware/aritymod/History.java" afterPath="$PROJECT_DIR$/app/src/main/java/ua/naiksoftware/aritymod/History.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ua/naiksoftware/aritymod/HistoryAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/ua/naiksoftware/aritymod/HistoryAdapter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ua/naiksoftware/aritymod/HistoryEntry.java" afterPath="$PROJECT_DIR$/app/src/main/java/ua/naiksoftware/aritymod/HistoryEntry.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ua/naiksoftware/aritymod/KeyboardView.java" afterPath="$PROJECT_DIR$/app/src/main/java/ua/naiksoftware/aritymod/KeyboardView.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ua/naiksoftware/aritymod/ListDefs.java" afterPath="$PROJECT_DIR$/app/src/main/java/ua/naiksoftware/aritymod/ListDefs.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ua/naiksoftware/aritymod/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/ua/naiksoftware/aritymod/MainActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ua/naiksoftware/aritymod/MotionEventWrap.java" afterPath="$PROJECT_DIR$/app/src/main/java/ua/naiksoftware/aritymod/MotionEventWrap.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ua/naiksoftware/aritymod/MotionEventWrapNew.java" afterPath="$PROJECT_DIR$/app/src/main/java/ua/naiksoftware/aritymod/MotionEventWrapNew.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ua/naiksoftware/aritymod/Settings.java" afterPath="$PROJECT_DIR$/app/src/main/java/ua/naiksoftware/aritymod/Settings.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ua/naiksoftware/aritymod/ShowGraph.java" afterPath="$PROJECT_DIR$/app/src/main/java/ua/naiksoftware/aritymod/ShowGraph.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ua/naiksoftware/aritymod/TouchHandler.java" afterPath="$PROJECT_DIR$/app/src/main/java/ua/naiksoftware/aritymod/TouchHandler.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ua/naiksoftware/aritymod/Util.java" afterPath="$PROJECT_DIR$/app/src/main/java/ua/naiksoftware/aritymod/Util.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ua/naiksoftware/aritymod/ZoomTracker.java" afterPath="$PROJECT_DIR$/app/src/main/java/ua/naiksoftware/aritymod/ZoomTracker.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/outputFileStates.bin" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local.properties" afterPath="$PROJECT_DIR$/local.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Arity.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1825,6 +1758,13 @@
       <option name="number" value="Default" />
       <updated>1445688522913</updated>
     </task>
+    <task id="LOCAL-00001" summary="Convert to AndroidStudio project, use new target SDK (22)">
+      <created>1445691533352</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1445691533352</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1864,6 +1804,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Convert to AndroidStudio project, use new target SDK (22)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Convert to AndroidStudio project, use new target SDK (22)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
