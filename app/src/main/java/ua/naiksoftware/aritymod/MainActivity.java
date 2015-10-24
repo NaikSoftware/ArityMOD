@@ -2,15 +2,13 @@
 package ua.naiksoftware.aritymod;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
-import android.hardware.input.InputManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.Editable;
-import android.text.InputType;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -18,19 +16,25 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
-import java.util.ArrayList;
-import org.javia.arity.*;
+
+import org.javia.arity.Complex;
+import org.javia.arity.Function;
+import org.javia.arity.FunctionAndName;
+import org.javia.arity.Symbols;
+import org.javia.arity.SyntaxException;
 import org.javia.arity.Util;
+
+import java.util.ArrayList;
 
 public class MainActivity extends Activity implements TextWatcher,
         View.OnKeyListener,
         View.OnClickListener,
         AdapterView.OnItemClickListener,
+        KeyboardView.KeyboardListener,
         SharedPreferences.OnSharedPreferenceChangeListener {
 
     static final char MINUS = '\u2212', TIMES = '\u00d7', DIV = '\u00f7', SQRT = '\u221a', PI = '\u03c0',
@@ -56,7 +60,7 @@ public class MainActivity extends Activity implements TextWatcher,
     private KeyboardView alpha, digits;
     static ArrayList<Function> graphedFunction;
     static Defs defs;
-    private ArrayList<Function> auxFuncs = new ArrayList<Function>();
+    private ArrayList<Function> auxFuncs = new ArrayList<>();
     static boolean useHighQuality3d = true;
 
     private static final char[][] ALPHA = {
@@ -102,11 +106,11 @@ public class MainActivity extends Activity implements TextWatcher,
         alpha = (KeyboardView) findViewById(R.id.alpha);
         digits = (KeyboardView) findViewById(R.id.digits);
         if (isLandscape) {
-            digits.init(DIGITS2, false, true);
+            digits.init(DIGITS2, false, true, this);
             isAlphaVisible = false;
         } else {
-            alpha.init(ALPHA, false, false);
-            digits.init(DIGITS, true, true);
+            alpha.init(ALPHA, false, false, this);
+            digits.init(DIGITS, true, true, this);
             updateAlpha();
         }
 
@@ -117,18 +121,22 @@ public class MainActivity extends Activity implements TextWatcher,
         input.setOnKeyListener(this);
         input.addTextChangedListener(this);
         input.setEditableFactory(new CalculatorEditable.Factory());
-        //input.setInputType(0);
-        input.setRawInputType(InputType.TYPE_CLASS_TEXT);
-        input.setTextIsSelectable(true);
+
+        if (Build.VERSION.SDK_INT > 10) {// for greater 4.x
+            input.setTextIsSelectable(true);
+        } else {                         // hide keyboard for less 4.x
+            input.setInputType(0);
+        }
+
         changeInput(history.getText());
         if (oldText != null) {
             input.setText(oldText);
         }
         input.requestFocus();
-  //      InputMethodManager inputManager
- //               = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
- //       inputManager.hideSoftInputFromWindow(
- //              this.getCurrentFocus().getWindowToken(), InputMethodManager.RESULT_UNCHANGED_HIDDEN);
+//      InputMethodManager inputManager
+//               = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+//       inputManager.hideSoftInputFromWindow(
+//              this.getCurrentFocus().getWindowToken(), InputMethodManager.RESULT_UNCHANGED_HIDDEN);
         graphView.setOnClickListener(this);
         graph3dView.setOnClickListener(this);
         if (historyView != null) {
@@ -268,13 +276,15 @@ public class MainActivity extends Activity implements TextWatcher,
          */
     }
 
+    @Override
     public void beforeTextChanged(CharSequence s, int start, int count, int after) {
     }
 
+    @Override
     public void onTextChanged(CharSequence s, int start, int before, int count) {
     }
 
-    // OnKeyListener
+    @Override
     public boolean onKey(View v, int keyCode, KeyEvent event) {
         int action = event.getAction();
         if (action == KeyEvent.ACTION_DOWN) {
@@ -407,7 +417,8 @@ public class MainActivity extends Activity implements TextWatcher,
 
     private StringBuilder oneChar = new StringBuilder(" ");
 
-    void onKey(char key) {
+    @Override
+    public void onKeyboardClicked(char key) {
         if (key == 'E') {
             doEnter();
         } else if (key == 'C') {

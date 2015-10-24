@@ -26,24 +26,28 @@ public class KeyboardView extends View {
     private float downCW, downCH;
     private final Rect rect = new Rect();
     private float cellw, cellh;
-    private final MainActivity calculator;
+    private float scaledDensity;
+    private final Context context;
     private KeyboardView aboveView;
     private boolean isLarge, isBottom;
+    private KeyboardListener keyboardListener;
 
     public KeyboardView(Context context, AttributeSet attrs) {
         super(context, attrs);
         downPaint.setAntiAlias(false);
         downPaint.setColor(0xffffffff);
         downPaint.setStyle(Paint.Style.STROKE);
-        calculator = (MainActivity) context;
+        this.context = context;
     }
 
-    void init(char[][] keys, boolean isLarge, boolean isBottom) {
+    void init(char[][] keys, boolean isLarge, boolean isBottom, KeyboardListener listener) {
         this.keys = keys;
         nLine = keys.length;
         nCol = keys[0].length;
         this.isLarge = isLarge;
         this.isBottom = isBottom;
+        keyboardListener = listener;
+        scaledDensity = context.getResources().getDisplayMetrics().scaledDensity;
     }
 
     void setAboveView(KeyboardView aboveView) {
@@ -63,7 +67,7 @@ public class KeyboardView extends View {
 
         Paint textPaint = new Paint();
         textPaint.setAntiAlias(true);
-        textPaint.setTextSize(isLarge ? 26 : 22);
+        textPaint.setTextSize(isLarge ? 26 * scaledDensity : 22 * scaledDensity);
         textPaint.setColor(0xffffffff);
         textPaint.setTextAlign(Paint.Align.CENTER);
         final float extraY = isLarge ? 10 : 8;
@@ -125,7 +129,7 @@ public class KeyboardView extends View {
     }
 
     private void drawDrawable(Canvas canvas, int id, float x, float y, float cw, float ch) {
-        Drawable d = calculator.getResources().getDrawable(id);
+        Drawable d = context.getResources().getDrawable(id, null);
         int iw = d.getIntrinsicWidth();
         int ih = d.getIntrinsicHeight();
         int x1 = Math.round(x + (cw - iw) / 2.f);
@@ -206,7 +210,7 @@ public class KeyboardView extends View {
                 }
                 invalidateCell(downLine, downCol);
                 char key = keys[downLine][downCol];
-                calculator.onKey(key);
+                keyboardListener.onKeyboardClicked(key);
             }
         } else if (action == MotionEvent.ACTION_UP) {
             if (isDown) {
@@ -228,5 +232,9 @@ public class KeyboardView extends View {
         int y2 = (int) (y1 + downCH + 1);
         invalidate((int) x1, (int) y1, x2, y2);
         // log("invalidate " + x + ' '  + y + ' ' + ((int)x1) + ' ' + ((int)y1) + ' ' + x2 + ' ' + y2);
+    }
+
+    public interface KeyboardListener {
+        void onKeyboardClicked(char key);
     }
 }

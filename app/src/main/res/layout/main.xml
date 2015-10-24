@@ -16,7 +16,7 @@
         android:lines="1"
         android:freezesText="true"
         android:textColor="@color/result"
-    />
+        android:background="#201d1d" />
     <EditText
         android:id="@+id/input"
         android:layout_width="fill_parent"
