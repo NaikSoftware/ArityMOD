@@ -129,7 +129,7 @@ public class KeyboardView extends View {
     }
 
     private void drawDrawable(Canvas canvas, int id, float x, float y, float cw, float ch) {
-        Drawable d = context.getResources().getDrawable(id, null);
+        Drawable d = context.getResources().getDrawable(id);
         int iw = d.getIntrinsicWidth();
         int ih = d.getIntrinsicHeight();
         int x1 = Math.round(x + (cw - iw) / 2.f);

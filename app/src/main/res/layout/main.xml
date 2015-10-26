@@ -1,33 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout 
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#ff000000"
->
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar" />
+
     <TextView
         android:id="@+id/result"
-        android:layout_width="fill_parent" 
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:gravity="right"
-        android:textSize="32sp"
-        android:scrollbars="none"
-        android:lines="1"
         android:freezesText="true"
-        android:textColor="@color/result"
-        android:background="#201d1d" />
+        android:gravity="end"
+        android:lines="1"
+        android:scrollbars="none"
+        android:textSize="32sp" />
+
     <EditText
         android:id="@+id/input"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:autoText="false"
         android:gravity="left"
-        android:textSize="28dip"
+        android:imeOptions="flagNoEnterAction|flagNoExtractUi"
         android:scrollbars="none"
         android:singleLine="true"
-        android:autoText="false"
-        android:imeOptions="flagNoEnterAction|flagNoExtractUi"
-    />
+        android:textSize="28dip" />
+
     <ListView
         android:id="@+id/history"
         android:layout_width="fill_parent"
@@ -36,23 +35,22 @@
         android:cacheColorHint="#ff000000"
         android:choiceMode="singleChoice"
         android:scrollbarStyle="outsideInset"
-        android:scrollbars="none"
-    />
+        android:scrollbars="none" />
+
     <ua.naiksoftware.aritymod.GraphView
         android:id="@+id/graph"
         android:layout_width="fill_parent"
         android:layout_height="0dip"
         android:layout_weight="1"
-        android:visibility="gone"
-    />
+        android:visibility="gone" />
+
     <ua.naiksoftware.aritymod.Graph3dView
         android:id="@+id/graph3d"
         android:layout_width="fill_parent"
         android:layout_height="0dip"
         android:layout_weight="1"
-        android:visibility="gone"
-    />
-    
+        android:visibility="gone" />
+
     <include layout="@layout/keyboard" />
-    
+
 </LinearLayout>

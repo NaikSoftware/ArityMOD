@@ -4,5 +4,6 @@
     
     <string name="app_name">ArityMOD</string>
     <string name="user_defs">User definitions</string>
+    <string name="help">Help</string>
 
 </resources>

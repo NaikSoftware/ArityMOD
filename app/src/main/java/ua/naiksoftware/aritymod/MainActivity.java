@@ -1,13 +1,14 @@
 // Copyright (C) 2009 Mihai Preda
 package ua.naiksoftware.aritymod;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -30,11 +31,12 @@ import org.javia.arity.Util;
 
 import java.util.ArrayList;
 
-public class MainActivity extends Activity implements TextWatcher,
+public class MainActivity extends AppCompatActivity implements TextWatcher,
         View.OnKeyListener,
         View.OnClickListener,
         AdapterView.OnItemClickListener,
         KeyboardView.KeyboardListener,
+        Toolbar.OnMenuItemClickListener,
         SharedPreferences.OnSharedPreferenceChangeListener {
 
     static final char MINUS = '\u2212', TIMES = '\u00d7', DIV = '\u00f7', SQRT = '\u221a', PI = '\u03c0',
@@ -64,20 +66,20 @@ public class MainActivity extends Activity implements TextWatcher,
     static boolean useHighQuality3d = true;
 
     private static final char[][] ALPHA = {
-        {'q', 'w', '=', ',', ';', SQRT, '!', '\''},
-        {'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'},
-        {'a', 's', 'd', 'f', 'g', 'h', 'j', 'k'},
-        {'z', 'x', 'c', 'v', 'b', 'n', 'm', 'l'},};
+            {'q', 'w', '=', ',', ';', SQRT, '!', '\''},
+            {'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'},
+            {'a', 's', 'd', 'f', 'g', 'h', 'j', 'k'},
+            {'z', 'x', 'c', 'v', 'b', 'n', 'm', 'l'},};
 
     private static final char[][] DIGITS = {
-        {'7', '8', '9', '%', '^', ARROW},
-        {'4', '5', '6', '(', ')', 'C'},
-        {'1', '2', '3', TIMES, DIV, 'E'},
-        {'0', '0', '.', '+', MINUS, 'E'},};
+            {'7', '8', '9', '%', '^', ARROW},
+            {'4', '5', '6', '(', ')', 'C'},
+            {'1', '2', '3', TIMES, DIV, 'E'},
+            {'0', '0', '.', '+', MINUS, 'E'},};
 
     private static final char[][] DIGITS2 = {
-        {'0', '.', '+', MINUS, TIMES, DIV, '^', '(', ')', 'C'},
-        {'1', '2', '3', '4', '5', '6', '7', '8', '9', 'E'},};
+            {'0', '.', '+', MINUS, TIMES, DIV, '^', '(', ')', 'C'},
+            {'1', '2', '3', '4', '5', '6', '7', '8', '9', 'E'},};
 
     /*
      private static final char[][] DIGITS3 = {
@@ -88,6 +90,7 @@ public class MainActivity extends Activity implements TextWatcher,
      {'1', '2', '3', '4', '5', '6', '7', '8', '9', 'E'},
      };
      */
+
     @Override
     public void onConfigurationChanged(Configuration config) {
         super.onConfigurationChanged(config);
@@ -96,6 +99,11 @@ public class MainActivity extends Activity implements TextWatcher,
 
     private void internalConfigChange(Configuration config) {
         setContentView(R.layout.main);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.inflateMenu(R.menu.main);
+        toolbar.setOnMenuItemClickListener(this);
+
         graphView = (GraphView) findViewById(R.id.graph);
         graph3dView = (Graph3dView) findViewById(R.id.graph3d);
         historyView = (ListView) findViewById(R.id.history);
@@ -148,6 +156,7 @@ public class MainActivity extends Activity implements TextWatcher,
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         history = new History(this);
         adapter = new HistoryAdapter(this, history);
         internalConfigChange(getResources().getConfiguration());
@@ -155,11 +164,11 @@ public class MainActivity extends Activity implements TextWatcher,
         defs = new Defs(this, symbols);
         if (history.fileNotFound) {
             String[] init = {
-                "sqrt(pi)\u00f70.5!",
-                "e^(i\u00d7pi)",
-                "ln(e^100)",
-                "sin(x)",
-                "x^2"
+                    "sqrt(pi)\u00f70.5!",
+                    "e^(i\u00d7pi)",
+                    "ln(e^100)",
+                    "sin(x)",
+                    "x^2"
             };
             nDigits = 10;
             for (String s : init) {
@@ -172,12 +181,13 @@ public class MainActivity extends Activity implements TextWatcher,
         String value = prefs.getString("quality", null);
         if (value == null) {
             useHighQuality3d = ua.naiksoftware.aritymod.Util.SDK_VERSION >= 5;
-            prefs.edit().putString("quality", useHighQuality3d ? "high" : "low").commit();
+            prefs.edit().putString("quality", useHighQuality3d ? "high" : "low").apply();
         } else {
             useHighQuality3d = value.equals("high");
         }
     }
 
+    @Override
     public void onPause() {
         super.onPause();
         graph3dView.onPause();
@@ -186,26 +196,21 @@ public class MainActivity extends Activity implements TextWatcher,
         defs.save();
     }
 
+    @Override
     public void onResume() {
         super.onResume();
         graph3dView.onResume();
     }
 
-    public boolean onCreateOptionsMenu(Menu menu) {
-        super.onCreateOptionsMenu(menu);
-        (new MenuInflater(this)).inflate(R.menu.main, menu);
-        return true;
-    }
-
+    /*@Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-        super.onPrepareOptionsMenu(menu);
         menu.findItem(R.id.clear_history).setEnabled(history.size() > 0);
         menu.findItem(R.id.list_defs).setEnabled(defs.size() > 0);
-        // menu.findItem(R.id.clear_defs).setEnabled(defs.size() > 0);
         return true;
-    }
+    }*/
 
-    public boolean onOptionsItemSelected(MenuItem item) {
+    @Override
+    public boolean onMenuItemClick(MenuItem item) {
         super.onOptionsItemSelected(item);
         int id = item.getItemId();
         switch (id) {
