@@ -24,15 +24,12 @@
         <activity android:name=".ShowGraph" />
         <!-- activity android:name=".ShowGraph3d" / -->
         <activity
-            android:name=".ListDefs"
-            android:label="@string/user_defs" />
-        <activity
             android:name=".HelpActivity"
             android:label="Arity Calculator" />
         <activity
             android:name=".Settings"
             android:label="Calculator settings" />
-        <activity android:name=".DefsActivity"></activity>
+        <activity android:name=".DefsActivity"/>
     </application>
 
 </manifest>
