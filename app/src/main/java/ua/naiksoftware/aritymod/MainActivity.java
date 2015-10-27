@@ -13,8 +13,6 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -30,6 +28,8 @@ import org.javia.arity.SyntaxException;
 import org.javia.arity.Util;
 
 import java.util.ArrayList;
+
+import ua.naiksoftware.utils.ParcelableBinder;
 
 public class MainActivity extends AppCompatActivity implements TextWatcher,
         View.OnKeyListener,
@@ -215,12 +215,14 @@ public class MainActivity extends AppCompatActivity implements TextWatcher,
         int id = item.getItemId();
         switch (id) {
             case R.id.list_defs: {
-                startActivity(new Intent(this, ListDefs.class));
+                Intent intent = new Intent(this, DefsActivity.class);
+                intent.putExtra(DefsActivity.PARAM_DEFS, new ParcelableBinder<>(defs));
+                startActivity(intent);
                 break;
             }
 
             case R.id.help:
-                startActivity(new Intent(this, Help.class));
+                startActivity(new Intent(this, HelpActivity.class));
                 break;
 
             case R.id.clear_history:

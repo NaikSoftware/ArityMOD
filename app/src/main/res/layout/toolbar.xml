@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.AppBarLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:compat="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/toolbar"
-    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    compat:logo="@drawable/icon"
-    compat:title="@string/app_name"
-    android:minHeight="?attr/actionBarSize"
-    android:background="?attr/colorPrimary"
-    tools:context=".MainActivity">
+    android:layout_width="match_parent">
 
-</android.support.v7.widget.Toolbar>
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        compat:logo="@drawable/ic_toolbar"
+        compat:title="@string/app_name"
+        tools:context=".MainActivity">
+
+    </android.support.v7.widget.Toolbar>
+</android.support.design.widget.AppBarLayout>

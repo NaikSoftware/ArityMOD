@@ -8,6 +8,9 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+/**
+ * @deprecated use DefsActivity
+ */
 public class ListDefs extends ListActivity {
 
     private Defs defs;

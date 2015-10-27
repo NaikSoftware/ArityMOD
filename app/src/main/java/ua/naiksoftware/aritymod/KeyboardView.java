@@ -88,7 +88,7 @@ public class KeyboardView extends View {
                 float ch = line < nLine - 1 && c == keys[line + 1][col] ? cellh + cellh : cellh;
                 final float x = x1 + cw / 2;
                 final int backColor = (('a' <= c && c <= 'z')
-                        || c == ' ' || c == MainActivity.PI) ? 0xff404040
+                        || c == ' ' || c == MainActivity.PI) ? 0xff445050
                         : (('0' <= c && c <= '9') || c == '.') ? 0xff303030
                         : (c == 'E' || c == 'C' || c == MainActivity.ARROW) ? 0xff306060 : 0xff808080;
                 /*
