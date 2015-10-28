@@ -9,4 +9,6 @@
     <string name="empty">Empty</string>
     <string name="dark_theme">Dark theme</string>
 
+    <string name="help_file">help.html</string>
+
 </resources>
