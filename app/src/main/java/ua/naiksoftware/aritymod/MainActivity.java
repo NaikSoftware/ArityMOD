@@ -237,7 +237,7 @@ public class MainActivity extends AppCompatActivity implements TextWatcher,
                 break;
 
             case R.id.settings:
-                startActivity(new Intent(this, Settings.class));
+                startActivity(new Intent(this, SettingsActivity.class));
                 break;
 
             default:

@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <ListPreference 
-         android:key="quality"
-         android:title="3D quality"
-         android:entries="@array/quality_entries"
-         android:entryValues="@array/quality_values"
-         />
+    <ListPreference
+        android:entries="@array/quality_entries"
+        android:entryValues="@array/quality_values"
+        android:key="quality"
+        android:title="3D quality" />
+    <CheckBoxPreference
+        android:key="dark_theme"
+        android:title="@string/dark_theme"/>
 </PreferenceScreen>

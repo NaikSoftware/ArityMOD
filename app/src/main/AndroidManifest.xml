@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ua.naiksoftware.aritymod"
-    android:versionCode="33"
-    android:versionName="1.42">
+    android:versionCode="35"
+    android:versionName="1.43">
+
+    <uses-sdk xmlns:tools="http://schemas.android.com/tools"
+        tools:overrideLibrary="android.support.v14.preference" />
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
@@ -27,7 +30,7 @@
             android:name=".HelpActivity"
             android:label="Arity Calculator" />
         <activity
-            android:name=".Settings"
+            android:name=".SettingsActivity"
             android:label="Calculator settings" />
         <activity android:name=".DefsActivity"/>
     </application>
