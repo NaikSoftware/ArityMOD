@@ -1,6 +1,7 @@
 // Copyright (C) 2009 Mihai Preda
 package ua.naiksoftware.aritymod;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -15,6 +16,7 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -141,10 +143,10 @@ public class MainActivity extends AppCompatActivity implements TextWatcher,
             input.setText(oldText);
         }
         input.requestFocus();
-//      InputMethodManager inputManager
-//               = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-//       inputManager.hideSoftInputFromWindow(
-//              this.getCurrentFocus().getWindowToken(), InputMethodManager.RESULT_UNCHANGED_HIDDEN);
+        InputMethodManager inputManager
+                = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        inputManager.hideSoftInputFromWindow(
+                this.getCurrentFocus().getWindowToken(), InputMethodManager.RESULT_UNCHANGED_HIDDEN);
         graphView.setOnClickListener(this);
         graph3dView.setOnClickListener(this);
         if (historyView != null) {

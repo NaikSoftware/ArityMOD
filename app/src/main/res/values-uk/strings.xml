@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <string name="app_name">ArityMOD</string>
+    <string name="user_defs">Змінні</string>
+    <string name="help">Допомога</string>
+    <string name="settings">Налаштування</string>
+    <string name="clear_history">Спорожнити історію</string>
+    <string name="empty">Нічого немає</string>
+    <string name="dark_theme">Темна тема</string>
+
     <string name="help_file">help_ru.html</string>
 </resources>
