@@ -202,7 +202,7 @@ public class KeyboardView extends View {
                 downCW = cellw;
                 downCH = cellh;
                 /* TODO: Kostuli */
-                if (downLine == 2 && downCol <= 1 && isLarge) { // Large '0' button
+                if (downLine == 3 && downCol <= 1 && isLarge) { // Large '0' button
                     downCol = 0;
                     downCW = cellw + cellw;
                 } else if (downCol == 5 && downLine >= 1 && downLine <= 2 && isLarge) { // Large remove button
