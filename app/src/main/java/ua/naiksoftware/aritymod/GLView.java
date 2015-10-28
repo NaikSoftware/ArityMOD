@@ -36,7 +36,7 @@ abstract class GLView extends SurfaceView implements SurfaceHolder.Callback {
     private GL11 gl;
     protected int width, height;
     private boolean mIsLooping;
-    private UIHandler handler;
+    private UIHandler handler = new UIHandler(new WeakReference<>(this));
 
     abstract void onDrawFrame(GL10 gl);
     abstract void onSurfaceCreated(GL10 gl, int width, int height);
