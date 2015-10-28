@@ -11,5 +11,4 @@
     <color name="textColorEnabled">#545454</color>
     <color name="textColorDisabled">#e5616161</color>
     <color name="inputAreaBackground">#E8EAF6</color>
-    <color name="darkText">#003b31</color>
 </resources>

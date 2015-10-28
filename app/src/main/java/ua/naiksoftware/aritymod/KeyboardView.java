@@ -55,9 +55,9 @@ public class KeyboardView extends View {
     }
 
     @Override
-    protected void onSizeChanged(int w, int h, int ow, int oh) {
+    protected void onSizeChanged(int w, int h, int oldW, int oldH) {
         width = w;
-        height = isBottom ? h - 5 : h;
+        height = h;
 
         bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
         Canvas canvas = new Canvas(bitmap);
@@ -90,7 +90,7 @@ public class KeyboardView extends View {
                 final int backColor = (('a' <= c && c <= 'z')
                         || c == ' ' || c == MainActivity.PI) ? 0xff445050
                         : (('0' <= c && c <= '9') || c == '.') ? 0xff303030
-                        : (c == 'E' || c == 'C' || c == MainActivity.ARROW) ? 0xff306060 : 0xff808080;
+                        : (c == 'E' || c == 'C' || c == 'A') ? 0xff306060 : 0xff808080;
                 /*
                  (c == '+' || c == '\u2212' || c == '\u00d7' || c == '\u00f7') ? 0xff808080 :
                  0xffb0b0b0;
@@ -99,16 +99,16 @@ public class KeyboardView extends View {
                 canvas.drawRect(x1, y1, x1 + cw, y1 + ch, linePaint);
 
                 switch (c) {
-                    case 'E':
-                        drawDrawable(canvas, R.drawable.enter, x1, y1, cw, ch);
+                    case 'E': // Enter new line
+                        drawDrawable(canvas, R.drawable.ic_keyboard_return_white, x1, y1, cw, ch);
                         break;
-
-                    case 'C':
-                        drawDrawable(canvas, R.drawable.delete, x1, y1, cw, ch);
+                    case 'C': // Remove symbol
+                        drawDrawable(canvas, R.drawable.ic_backspace_white, x1, y1, cw, ch);
                         break;
-
-                    default:
-                        // textPaint.setColor(('0' <= c && c <= '9') ? 0xffffff00 : 0xffffffff);
+                    case 'A': // Arrow show/hide vertical keyboard
+                        drawDrawable(canvas, R.drawable.ic_swap_vert_white, x1, y1, cw, ch);
+                        break;
+                    default: // Other symbols
                         canvas.drawText(lineKeys, col, 1, x, y, textPaint);
                 }
             }
@@ -201,11 +201,12 @@ public class KeyboardView extends View {
                 downCol = getCol(downX);
                 downCW = cellw;
                 downCH = cellh;
-                if (downLine == 3 && downCol <= 1 && isLarge) {
+                /* TODO: Kostuli */
+                if (downLine == 2 && downCol <= 1 && isLarge) { // Large '0' button
                     downCol = 0;
                     downCW = cellw + cellw;
-                } else if (downCol == 5 && downLine >= 2 && isLarge) {
-                    downLine = 2;
+                } else if (downCol == 5 && downLine >= 1 && downLine <= 2 && isLarge) { // Large remove button
+                    downLine = 1;
                     downCH = cellh + cellh;
                 }
                 invalidateCell(downLine, downCol);

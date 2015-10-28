@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements TextWatcher,
         SharedPreferences.OnSharedPreferenceChangeListener {
 
     static final char MINUS = '\u2212', TIMES = '\u00d7', DIV = '\u00f7', SQRT = '\u221a', PI = '\u03c0',
-            UP_ARROW = '\u21e7', DN_ARROW = '\u21e9', ARROW = '\u21f3';
+            UP_ARROW = '\u21e7', DN_ARROW = '\u21e9';
 
     private static final int MSG_INPUT_CHANGED = 1;
     private static final String INFINITY = "Infinity";
@@ -72,9 +72,9 @@ public class MainActivity extends AppCompatActivity implements TextWatcher,
             {'z', 'x', 'c', 'v', 'b', 'n', 'm', 'l'},};
 
     private static final char[][] DIGITS = {
-            {'7', '8', '9', '%', '^', ARROW},
+            {'7', '8', '9', '%', '^', 'A'},
             {'4', '5', '6', '(', ')', 'C'},
-            {'1', '2', '3', TIMES, DIV, 'E'},
+            {'1', '2', '3', TIMES, DIV, 'C'},
             {'0', '0', '.', '+', MINUS, 'E'},};
 
     private static final char[][] DIGITS2 = {
@@ -430,7 +430,7 @@ public class MainActivity extends AppCompatActivity implements TextWatcher,
             doEnter();
         } else if (key == 'C') {
             doBackspace();
-        } else if (key == ARROW) {
+        } else if (key == 'A') {
             isAlphaVisible = !isAlphaVisible;
             updateAlpha();
         } else {

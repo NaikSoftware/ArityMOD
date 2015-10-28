@@ -12,6 +12,7 @@ import javax.microedition.khronos.opengles.GL;
 import javax.microedition.khronos.opengles.GL10;
 import javax.microedition.khronos.opengles.GL11;
 
+import java.lang.ref.WeakReference;
 import java.nio.ByteBuffer;
 import java.nio.IntBuffer;
 import java.nio.ByteOrder;
@@ -35,6 +36,7 @@ abstract class GLView extends SurfaceView implements SurfaceHolder.Callback {
     private GL11 gl;
     protected int width, height;
     private boolean mIsLooping;
+    private UIHandler handler;
 
     abstract void onDrawFrame(GL10 gl);
     abstract void onSurfaceCreated(GL10 gl, int width, int height);
@@ -52,17 +54,22 @@ abstract class GLView extends SurfaceView implements SurfaceHolder.Callback {
         gl.glReadPixels(0, 0, width, height, GL10.GL_RGBA, GL10.GL_UNSIGNED_BYTE, buf);
         int data[] = new int[size];
         buf.asIntBuffer().get(data);
-        buf = null;
         Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
         bitmap.setPixels(data, size-width, -width, 0, 0, width, height);
         return bitmap;
     }
 
-    private Handler handler = new Handler() {
-            public void handleMessage(Message msg) {
-                glDraw();
-            }
-        };
+    private static final class UIHandler extends Handler {
+        WeakReference<GLView> glView;
+        private UIHandler(WeakReference<GLView> reference) {
+            this.glView = reference;
+        }
+
+        @Override
+        public void handleMessage(Message msg) {
+            glView.get().glDraw();
+        }
+    }
 
     public GLView(Context context) {
         super(context);
@@ -76,7 +83,6 @@ abstract class GLView extends SurfaceView implements SurfaceHolder.Callback {
 
     private void init() {
         SurfaceHolder holder = getHolder();
-        holder.setType(SurfaceHolder.SURFACE_TYPE_GPU);
         holder.addCallback(this);
     }
     

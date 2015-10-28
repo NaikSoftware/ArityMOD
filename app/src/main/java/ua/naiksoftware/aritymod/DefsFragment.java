@@ -1,6 +1,7 @@
 package ua.naiksoftware.aritymod;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
@@ -34,12 +35,6 @@ public class DefsFragment extends ListFragment {
     private OnFragmentInteractionListener mListener;
 
     /**
-     * The Adapter which will be used to populate the ListView/GridView with
-     * Views.
-     */
-    private ListAdapter mAdapter;
-
-    /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
@@ -60,11 +55,10 @@ public class DefsFragment extends ListFragment {
 
         if (getArguments() != null) {
             mDefs = getArguments().getStringArrayList(ARG_DEFS_LIST);
-        }
+        } else return;
 
-        mAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1,
-                android.R.id.text1, mDefs);
-        setListAdapter(mAdapter);
+        setListAdapter(new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1,
+                android.R.id.text1, mDefs));
     }
 
     @Override
@@ -73,12 +67,12 @@ public class DefsFragment extends ListFragment {
     }
 
     @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
+    public void onAttach(Context context) {
+        super.onAttach(context);
         try {
-            mListener = (OnFragmentInteractionListener) activity;
+            mListener = (OnFragmentInteractionListener) context;
         } catch (ClassCastException e) {
-            throw new ClassCastException(activity.toString()
+            throw new ClassCastException(context.toString()
                     + " must implement OnFragmentInteractionListener");
         }
     }
