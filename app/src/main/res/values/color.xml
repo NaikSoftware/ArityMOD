@@ -1,19 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!-- Light theme colors -->
     <color name="primary">#2196F3</color>
     <color name="textPrimary">#E3F2FD</color>
     <color name="textPrimaryDark">#282b2d</color>
     <color name="primaryDark">#0D47A1</color>
-    <!--color name="accentEnabled">#424242</color-->
     <color name="accentEnabled">#1565C0</color>
     <color name="accentDisabled">#8b8b8b</color>
-    <!--color name="windowBackground">#d2d4df</color-->
     <color name="windowBackground">#eaecf7</color>
     <color name="textColorEnabled">#545454</color>
     <color name="textColorDisabled">#e5616161</color>
     <color name="inputAreaBackground">#E8EAF6</color>
 
-    <!-- this is needed as preference_category_material layout is using this color as the text color -->
-    <color name="preference_fallback_accent_color">@color/accent</color>
-    <color name="primary_text">@color/textPrimaryDark</color>
+    <!-- Dark theme colors -->
+    <color name="primary_dark">#333333</color>
+    <color name="textPrimary_dark">#E3F2FD</color>
+    <color name="textPrimaryDark_dark">#282b2d</color>
+    <color name="primaryDark_dark">#010813</color>
+    <color name="accentEnabled_dark">#ececec</color>
+    <color name="accentDisabled_dark">#f38b8b8b</color>
+    <color name="windowBackground_dark">#eaecf7</color>
+    <color name="textColorEnabled_dark">#f1efef</color>
+    <color name="textColorDisabled_dark">#e5616161</color>
+    <color name="inputAreaBackground_dark">#E8EAF6</color>
+
 </resources>

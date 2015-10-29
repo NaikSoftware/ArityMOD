@@ -8,7 +8,6 @@ import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -33,7 +32,7 @@ import java.util.ArrayList;
 
 import ua.naiksoftware.utils.ParcelableBinder;
 
-public class MainActivity extends AppCompatActivity implements TextWatcher,
+public class MainActivity extends ThemedActivity implements TextWatcher,
         View.OnKeyListener,
         View.OnClickListener,
         AdapterView.OnItemClickListener,
@@ -253,6 +252,8 @@ public class MainActivity extends AppCompatActivity implements TextWatcher,
         if (key.equals("quality")) {
             useHighQuality3d = prefs.getString(key, "high").equals("high");
             // Calculator.log("useHigh quality changed to " + useHighQuality3d);
+        } else if (key.equals("dark_theme")) {
+            finish();
         }
     }
 

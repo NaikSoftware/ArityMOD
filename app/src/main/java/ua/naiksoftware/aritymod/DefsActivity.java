@@ -1,6 +1,5 @@
 package ua.naiksoftware.aritymod;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
@@ -9,7 +8,7 @@ import android.widget.Toast;
 
 import ua.naiksoftware.utils.ParcelableBinder;
 
-public class DefsActivity extends AppCompatActivity implements
+public class DefsActivity extends ThemedActivity implements
         DefsFragment.OnFragmentInteractionListener, Toolbar.OnMenuItemClickListener {
 
     public static final String PARAM_DEFS = "param_defs";

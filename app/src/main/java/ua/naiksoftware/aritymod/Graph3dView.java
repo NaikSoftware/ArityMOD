@@ -105,6 +105,7 @@ public class Graph3dView extends GLView implements
         super.onDetachedFromWindow();
     }
 
+    @Override
     public void onTouchDown(float x, float y) {
         zoomController.setVisible(true);
         stopLooping();
@@ -112,6 +113,7 @@ public class Graph3dView extends GLView implements
         lastTouchY = y;
     }
 
+    @Override
     public void onTouchMove(float x, float y) {
         float deltaX = x - lastTouchX;
         float deltaY = y - lastTouchY;
@@ -123,6 +125,7 @@ public class Graph3dView extends GLView implements
         }
     }
 
+    @Override
     public void onTouchUp(float x, float y) {
         float vx = touchHandler.velocityTracker.getXVelocity();
         float vy = touchHandler.velocityTracker.getYVelocity();
@@ -133,10 +136,12 @@ public class Graph3dView extends GLView implements
         }
     }
 
+    @Override
     public void onTouchZoomDown(float x1, float y1, float x2, float y2) {
 
     }
 
+    @Override
     public void onTouchZoomMove(float x1, float y1, float x2, float y2) {
 
     }

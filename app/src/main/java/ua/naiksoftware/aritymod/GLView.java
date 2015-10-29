@@ -18,6 +18,7 @@ import java.nio.IntBuffer;
 import java.nio.ByteOrder;
 
 import android.content.Context;
+import android.graphics.PixelFormat;
 import android.util.AttributeSet;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -30,7 +31,7 @@ abstract class GLView extends SurfaceView implements SurfaceHolder.Callback {
     private boolean paused;
     private EGL10 egl;
     private EGLDisplay display;
-    private EGLConfig config;    
+    private EGLConfig config;
     private EGLSurface surface;
     private EGLContext eglContext;
     private GL11 gl;
@@ -85,7 +86,7 @@ abstract class GLView extends SurfaceView implements SurfaceHolder.Callback {
         SurfaceHolder holder = getHolder();
         holder.addCallback(this);
     }
-    
+
     public void onResume() {
         MainActivity.log("onResume " + this);
         paused = false;
@@ -104,7 +105,7 @@ abstract class GLView extends SurfaceView implements SurfaceHolder.Callback {
         display = egl.eglGetDisplay(EGL10.EGL_DEFAULT_DISPLAY);
         int[] ver = new int[2];
         egl.eglInitialize(display, ver);
-        
+
         int[] configSpec = {EGL10.EGL_NONE};
         EGLConfig[] configOut = new EGLConfig[1];
         int[] nConfig = new int[1];
@@ -154,7 +155,7 @@ abstract class GLView extends SurfaceView implements SurfaceHolder.Callback {
     public void surfaceCreated(SurfaceHolder holder) {
         MainActivity.log("surfaceCreated " + this);
     }
-    
+
     public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
         MainActivity.log("surfaceChanged " + format + ' ' + this);
         this.width  = width;
