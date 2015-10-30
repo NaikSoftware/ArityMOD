@@ -41,7 +41,7 @@ class Graph3d {
         verticeIdx = buildBuffer(b);
 
         String extensions = gl.glGetString(GL10.GL_EXTENSIONS);
-        useVBO = extensions.indexOf("vertex_buffer_object") != -1;
+        useVBO = extensions.contains("vertex_buffer_object");
         MainActivity.log("VBOs support: " + useVBO + " version " + gl.glGetString(GL10.GL_VERSION));
         
         if (useVBO) {
@@ -222,14 +222,14 @@ class Graph3d {
 
         if (useVBO) {
             gl.glBindBuffer(GL11.GL_ARRAY_BUFFER, vertexVbo);
-            gl.glBufferData(GL11.GL_ARRAY_BUFFER, vertexBuf.capacity()*4, vertexBuf, GL11.GL_STATIC_DRAW);           
+            gl.glBufferData(GL11.GL_ARRAY_BUFFER, vertexBuf.capacity()*4, vertexBuf, GL11.GL_STATIC_DRAW);
             vertexBuf = null;
 
             gl.glBindBuffer(GL11.GL_ARRAY_BUFFER, colorVbo);
             gl.glBufferData(GL11.GL_ARRAY_BUFFER, colorBuf.capacity(), colorBuf, GL11.GL_STATIC_DRAW);
             gl.glBindBuffer(GL11.GL_ARRAY_BUFFER, 0);
-            colorBuf = null;            
-        
+            colorBuf = null;
+
             gl.glBindBuffer(GL11.GL_ELEMENT_ARRAY_BUFFER, vertexElementVbo);
             gl.glBufferData(GL11.GL_ELEMENT_ARRAY_BUFFER, verticeIdx.capacity()*2, verticeIdx, GL11.GL_STATIC_DRAW);
             gl.glBindBuffer(GL11.GL_ELEMENT_ARRAY_BUFFER, 0);
@@ -251,13 +251,13 @@ class Graph3d {
             gl.glBindBuffer(GL11.GL_ARRAY_BUFFER, 0);
             // gl.glDrawArrays(GL10.GL_LINE_STRIP, 0, N*N);
 
-            gl.glBindBuffer(GL11.GL_ELEMENT_ARRAY_BUFFER, vertexElementVbo);        
+            gl.glBindBuffer(GL11.GL_ELEMENT_ARRAY_BUFFER, vertexElementVbo);
             gl.glDrawElements(GL10.GL_LINE_STRIP, N*N, GL10.GL_UNSIGNED_SHORT, 0);
             gl.glBindBuffer(GL11.GL_ELEMENT_ARRAY_BUFFER, 0);
-        } else {
+        } else { // TODO: fix error on devices without VBO support
             gl.glVertexPointer(3, GL10.GL_FLOAT, 0, vertexBuf);
             gl.glColorPointer(4, GL10.GL_UNSIGNED_BYTE, 0, colorBuf);
-            gl.glDrawElements(GL10.GL_LINE_STRIP, N*N, GL10.GL_UNSIGNED_SHORT, verticeIdx);
+            gl.glDrawElements(GL10.GL_LINE_STRIP, N * N, GL10.GL_UNSIGNED_SHORT, verticeIdx);
         }
         final int N2 = N*N;
         gl.glDrawArrays(GL10.GL_LINE_STRIP, 0, N2);

@@ -3,17 +3,15 @@
 package ua.naiksoftware.aritymod;
 
 import android.content.Context;
-import android.view.MotionEvent;
-import android.view.VelocityTracker;
-import android.widget.ZoomButtonsController;
+import android.opengl.Matrix;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
+import android.widget.ZoomButtonsController;
+
 import org.javia.arity.Function;
 
-import android.opengl.Matrix;
 import javax.microedition.khronos.opengles.GL10;
 import javax.microedition.khronos.opengles.GL11;
-import javax.microedition.khronos.egl.EGLConfig;
-import org.javia.arity.Function;
 
 public class Graph3dView extends GLView implements 
                                             Grapher,
@@ -178,7 +176,7 @@ public class Graph3dView extends GLView implements
     @Override
     public void onSurfaceCreated(GL10 gl, int width, int height) {
         gl.glDisable(GL10.GL_DITHER);
-        gl.glHint(GL10.GL_PERSPECTIVE_CORRECTION_HINT, GL10.GL_FASTEST);               
+        gl.glHint(GL10.GL_PERSPECTIVE_CORRECTION_HINT, GL10.GL_FASTEST);
         gl.glClearColor(0, 0, 0, 1);
         gl.glShadeModel(MainActivity.useHighQuality3d ? GL10.GL_SMOOTH : GL10.GL_FLAT);
         gl.glDisable(GL10.GL_LIGHTING);
