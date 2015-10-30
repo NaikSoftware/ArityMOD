@@ -2,29 +2,26 @@
 
 package ua.naiksoftware.aritymod;
 
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.os.Handler;
+import android.os.Message;
+import android.util.AttributeSet;
+import android.view.SurfaceHolder;
+import android.view.SurfaceView;
+
+import java.lang.ref.WeakReference;
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+
 import javax.microedition.khronos.egl.EGL10;
 import javax.microedition.khronos.egl.EGL11;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.egl.EGLContext;
 import javax.microedition.khronos.egl.EGLDisplay;
 import javax.microedition.khronos.egl.EGLSurface;
-import javax.microedition.khronos.opengles.GL;
 import javax.microedition.khronos.opengles.GL10;
 import javax.microedition.khronos.opengles.GL11;
-
-import java.lang.ref.WeakReference;
-import java.nio.ByteBuffer;
-import java.nio.IntBuffer;
-import java.nio.ByteOrder;
-
-import android.content.Context;
-import android.graphics.PixelFormat;
-import android.util.AttributeSet;
-import android.view.SurfaceHolder;
-import android.view.SurfaceView;
-import android.os.Handler;
-import android.os.Message;
-import android.graphics.Bitmap;
 
 abstract class GLView extends SurfaceView implements SurfaceHolder.Callback {
     private boolean hasSurface;

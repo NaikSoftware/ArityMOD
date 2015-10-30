@@ -48,17 +48,15 @@ public class MainActivity extends ThemedActivity implements TextWatcher,
     private static final String INFINITY_UNICODE = "\u221e";
 
     static Symbols symbols = new Symbols();
-    static Function function;
 
     private TextView result;
     private EditText input;
     private ListView historyView;
     private GraphView graphView;
-    private Graph3dView graph3dView;
+    private Graph3dSurfaceView graph3dView;
     private History history;
     private HistoryAdapter adapter;
     private int nDigits = 0;
-    private boolean pendingClearResult;
     private boolean isAlphaVisible;
     private KeyboardView alpha, digits;
     static ArrayList<Function> graphedFunction;
@@ -106,7 +104,7 @@ public class MainActivity extends ThemedActivity implements TextWatcher,
         toolbar.setOnMenuItemClickListener(this);
 
         graphView = (GraphView) findViewById(R.id.graph);
-        graph3dView = (Graph3dView) findViewById(R.id.graph3d);
+        graph3dView = (Graph3dSurfaceView) findViewById(R.id.graph3d);
         historyView = (ListView) findViewById(R.id.history);
 
         final boolean isLandscape = config.orientation == Configuration.ORIENTATION_LANDSCAPE;
@@ -247,30 +245,29 @@ public class MainActivity extends ThemedActivity implements TextWatcher,
         return true;
     }
 
-    //OnSharedPreferenceChangeListener
+    @Override
     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
         if (key.equals("quality")) {
             useHighQuality3d = prefs.getString(key, "high").equals("high");
-            // Calculator.log("useHigh quality changed to " + useHighQuality3d);
         } else if (key.equals("dark_theme")) {
             finish();
         }
     }
 
-    //OnClickListener
+    @Override
     public void onClick(View target) {
         if (target == graphView || target == graph3dView) {
-            startActivity(new Intent(this, ShowGraph.class));
+            startActivity(new Intent(this, FullScreenGraphActivity.class));
         }
     }
 
-    // OnItemClickListener
+    @Override
     public void onItemClick(AdapterView parent, View view, int pos, long id) {
         history.moveToPos(pos, input.getText().toString());
         changeInput(history.getText());
     }
 
-    // TextWatcher
+    @Override
     public void afterTextChanged(Editable s) {
         // handler.removeMessages(MSG_INPUT_CHANGED);
         // handler.sendEmptyMessageDelayed(MSG_INPUT_CHANGED, 250);
@@ -453,7 +450,6 @@ public class MainActivity extends ThemedActivity implements TextWatcher,
                 result.setVisibility(View.VISIBLE);
             }
         } else {
-            // graphedFunction = f;
             if (f.arity() == 1) {
                 graphView.setFunction(f);
                 if (graphView.getVisibility() != View.VISIBLE) {
@@ -489,7 +485,7 @@ public class MainActivity extends ThemedActivity implements TextWatcher,
     }
 
     void onEnter(String text) {
-        boolean historyChanged = false;
+        boolean historyChanged;
         try {
             FunctionAndName fan = symbols.compileWithName(text);
             if (fan.name != null) {
@@ -522,41 +518,17 @@ public class MainActivity extends ThemedActivity implements TextWatcher,
     private void changeInput(String newInput) {
         input.setText(newInput);
         input.setSelection(newInput.length());
-        /*
-         if (newInput.length() > 0) {
-         result.setText(null);
-         } else {
-         pendingClearResult = true;
-         }
-         */
-        /*
-         if (result.getText().equals("function")) {
-         result.setText(null);
-         }
-         */
     }
 
-    /*
-     private void updateChecked() {
-     int pos = history.getListPos();
-     if (pos >= 0) {
-     log("check " + pos);
-     historyView.setItemChecked(pos, true);
-     adapter.notifyDataSetInvalidated();
-     }
-     }
-     */
     void onUp() {
         if (history.moveUp(input.getText().toString())) {
             changeInput(history.getText());
-            // updateChecked();
         }
     }
 
     void onDown() {
         if (history.moveDown(input.getText().toString())) {
             changeInput(history.getText());
-            // updateChecked();
         }
     }
 

@@ -8,6 +8,7 @@
     <string name="clear_history">Очистить историю</string>
     <string name="empty">Пусто</string>
     <string name="dark_theme">Темная тема</string>
+    <string name="capture_screenshot">Снять скриншот</string>
 
     <string name="help_file">help_ru.html</string>
 </resources>

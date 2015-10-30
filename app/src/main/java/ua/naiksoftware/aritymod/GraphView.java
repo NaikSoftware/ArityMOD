@@ -72,6 +72,11 @@ public class GraphView extends View implements
         textPaint.setAntiAlias(true);
     }
 
+    @Override
+    public View getView() {
+        return this;
+    }
+
     public String captureScreenshot() {
         Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
         Canvas canvas = new Canvas(bitmap);

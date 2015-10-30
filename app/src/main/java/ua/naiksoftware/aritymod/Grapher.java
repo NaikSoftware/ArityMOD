@@ -2,12 +2,15 @@
 
 package ua.naiksoftware.aritymod;
 
+import android.view.View;
+
 import org.javia.arity.Function;
 
 interface Grapher {
-    static final String SCREENSHOT_DIR = "/screenshots";
-    public void setFunction(Function f);
-    public void onPause();
-    public void onResume();
-    public String captureScreenshot();
+    String SCREENSHOT_DIR = "/screenshots";
+    void setFunction(Function f);
+    void onPause();
+    void onResume();
+    View getView();
+    String captureScreenshot();
 }
