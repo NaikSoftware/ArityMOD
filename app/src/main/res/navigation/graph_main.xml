@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/mainFragment">
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="ua.naiksoftware.aritymod.feature.calculator.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/openSettings"
+            app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/openUserDefinitions"
+            app:destination="@id/userDefinitionsFragment" />
+        <action
+            android:id="@+id/openHelp"
+            app:destination="@id/helpFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="ua.naiksoftware.aritymod.feature.settings.SettingsFragment"
+        android:label="fragment_settings" />
+    <fragment
+        android:id="@+id/userDefinitionsFragment"
+        android:name="ua.naiksoftware.aritymod.feature.definitions.UserDefinitionsFragment"
+        android:label="fragment_user_definitions"
+        tools:layout="@layout/fragment_user_definitions" />
+    <fragment
+        android:id="@+id/helpFragment"
+        android:name="ua.naiksoftware.aritymod.feature.help.HelpFragment"
+        android:label="HelpFragment" />
+</navigation>

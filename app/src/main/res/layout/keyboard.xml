@@ -9,12 +9,11 @@
         <ua.naiksoftware.aritymod.feature.calculator.KeyboardView
             android:id="@+id/alpha"
             android:layout_width="fill_parent"
-            android:layout_height="184dip"
-            android:visibility="gone" />
+            android:layout_height="156dip" />
 
         <ua.naiksoftware.aritymod.feature.calculator.KeyboardView
             android:id="@+id/digits"
             android:layout_width="fill_parent"
-            android:layout_height="100dip" />
+            android:layout_height="184dip" />
     </LinearLayout>
 </layout>
