@@ -1,8 +1,5 @@
 plugins {
     id 'com.android.application'
-    id 'androidx.navigation.safeargs'
-    id 'kotlin-android'
-    id 'kotlin-kapt'
 }
 
 android {
@@ -18,7 +15,7 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
     }
@@ -29,7 +26,6 @@ android {
     }
 
     buildFeatures {
-        dataBinding true
         buildConfig true
     }
 
@@ -41,27 +37,9 @@ android {
 }
 
 dependencies {
-    implementation files('libs/arity-2.1.7.jar')
-
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-
-    implementation 'androidx.core:core-ktx:1.10.1'
-    implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.9.0'
-
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.6.0'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.6.0'
-
-    implementation 'androidx.preference:preference-ktx:1.2.0'
-
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1'
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.1'
-
-    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
-    implementation 'io.reactivex.rxjava2:rxjava:2.2.21'
-
-    implementation 'com.jakewharton.timber:timber:5.0.1'
-
-    implementation 'com.google.dagger:dagger:2.45'
-    kapt 'com.google.dagger:dagger-compiler:2.45'
+    compile files('libs/arity-2.1.6.jar')
+    compile (name: 'parcelablebinder', ext: 'aar')
+    compile 'com.android.support:appcompat-v7:23.1.0'
+    compile 'com.android.support:design:23.1.0'
+    compile 'com.android.support:support-v4:23.1.0'
 }
