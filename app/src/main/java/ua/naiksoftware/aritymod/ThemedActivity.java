@@ -3,7 +3,7 @@ package ua.naiksoftware.aritymod;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
 public abstract class ThemedActivity extends AppCompatActivity {
 

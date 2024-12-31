@@ -8,7 +8,6 @@ import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -21,6 +20,8 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import org.javia.arity.Complex;
 import org.javia.arity.Function;
 import org.javia.arity.FunctionAndName;
@@ -85,7 +86,7 @@ public class MainActivity extends ThemedActivity implements TextWatcher,
      {'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'},
      {'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', PI},
      {'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '=', '%'},
-     {'0', '.', '+', MINUS, TIMES, DIV, '^', '(', ')', 'C'},        
+     {'0', '.', '+', MINUS, TIMES, DIV, '^', '(', ')', 'C'},
      {'1', '2', '3', '4', '5', '6', '7', '8', '9', 'E'},
      };
      */
@@ -327,7 +328,7 @@ public class MainActivity extends ThemedActivity implements TextWatcher,
     /*
      private Handler handler = new Handler() {
      public void handleMessage(Message msg) {
-     switch (msg.what) {                    
+     switch (msg.what) {
      case MSG_INPUT_CHANGED:
      // String text = input.getText().toString();
      evaluate();

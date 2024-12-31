@@ -100,13 +100,13 @@ public class KeyboardView extends View {
 
                 switch (c) {
                     case 'E': // Enter new line
-                        drawDrawable(canvas, R.drawable.ic_keyboard_return_white, x1, y1, cw, ch);
+                        drawDrawable(canvas, android.R.drawable.ic_menu_send, x1, y1, cw, ch);
                         break;
                     case 'C': // Remove symbol
-                        drawDrawable(canvas, R.drawable.ic_backspace_white, x1, y1, cw, ch);
+                        drawDrawable(canvas, android.R.drawable.ic_input_delete, x1, y1, cw, ch);
                         break;
                     case 'A': // Arrow show/hide vertical keyboard
-                        drawDrawable(canvas, R.drawable.ic_swap_vert_white, x1, y1, cw, ch);
+                        drawDrawable(canvas, android.R.drawable.arrow_up_float, x1, y1, cw, ch);
                         break;
                     default: // Other symbols
                         canvas.drawText(lineKeys, col, 1, x, y, textPaint);

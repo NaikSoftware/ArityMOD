@@ -1,11 +1,12 @@
 package ua.naiksoftware.aritymod;
 
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import ua.naiksoftware.utils.ParcelableBinder;
 
 public class DefsActivity extends ThemedActivity implements
@@ -23,7 +24,7 @@ public class DefsActivity extends ThemedActivity implements
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setSubtitle(getString(R.string.user_defs));
-        toolbar.setNavigationIcon(android.support.v7.appcompat.R.drawable.abc_ic_ab_back_mtrl_am_alpha);
+        toolbar.setNavigationIcon(com.google.android.material.R.drawable.abc_ic_ab_back_material);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

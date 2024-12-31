@@ -4,8 +4,10 @@
         android:entries="@array/quality_entries"
         android:entryValues="@array/quality_values"
         android:key="quality"
+        android:icon="@android:drawable/ic_menu_manage"
         android:title="3D quality" />
     <CheckBoxPreference
         android:key="dark_theme"
+        android:icon="@android:drawable/ic_menu_info_details"
         android:title="@string/dark_theme"/>
 </PreferenceScreen>

@@ -3,7 +3,6 @@
 package ua.naiksoftware.aritymod;
 
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -13,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import androidx.appcompat.widget.Toolbar;
 import org.javia.arity.Function;
 
 import java.util.ArrayList;
@@ -42,7 +42,7 @@ public class FullScreenGraphActivity extends ThemedActivity implements Toolbar.O
         }
         setContentView(R.layout.full_screen_graph);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setNavigationIcon(android.support.v7.appcompat.R.drawable.abc_ic_ab_back_mtrl_am_alpha);
+        toolbar.setNavigationIcon(com.google.android.material.R.drawable.abc_ic_ab_back_material);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

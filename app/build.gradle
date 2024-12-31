@@ -3,12 +3,13 @@ plugins {
 }
 
 android {
+    namespace 'ua.naiksoftware.aritymod'
     compileSdk 34
 
     defaultConfig {
         applicationId "ua.naiksoftware.aritymod"
-        minSdkVersion 14
-        targetSdkVersion 34
+        minSdk 21
+        targetSdk 34
         versionCode 37
         versionName "1.45"
     }
@@ -16,7 +17,7 @@ android {
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
 
@@ -28,18 +29,13 @@ android {
     buildFeatures {
         buildConfig true
     }
-
-    kotlinOptions {
-        jvmTarget = '1.8'
-    }
-
-    namespace 'ua.naiksoftware.aritymod'
 }
 
 dependencies {
-    compile files('libs/arity-2.1.6.jar')
-    compile (name: 'parcelablebinder', ext: 'aar')
-    compile 'com.android.support:appcompat-v7:23.1.0'
-    compile 'com.android.support:design:23.1.0'
-    compile 'com.android.support:support-v4:23.1.0'
+    implementation files('libs/arity-2.1.7.jar')
+    implementation(name: 'parcelablebinder', ext: 'aar')
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.preference:preference:1.2.1'
+    implementation 'com.google.android.material:material:1.12.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 }
