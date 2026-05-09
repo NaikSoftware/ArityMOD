@@ -23,6 +23,11 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.graphics.Insets;
+import androidx.core.view.OnApplyWindowInsetsListener;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
 import org.javia.arity.Complex;
 import org.javia.arity.Function;
 import org.javia.arity.FunctionAndName;
@@ -152,11 +157,32 @@ public class MainActivity extends ThemedActivity implements TextWatcher,
             historyView.setAdapter(adapter);
             historyView.setOnItemClickListener(this);
         }
+        applyKeyboardInsets();
+    }
+
+    private void applyKeyboardInsets() {
+        final View keyboardContainer = findViewById(R.id.keyboard_container);
+        if (keyboardContainer == null) return;
+        final int xmlLeft = keyboardContainer.getPaddingLeft();
+        final int xmlRight = keyboardContainer.getPaddingRight();
+        final int xmlBottom = keyboardContainer.getPaddingBottom();
+        ViewCompat.setOnApplyWindowInsetsListener(keyboardContainer, new OnApplyWindowInsetsListener() {
+            @Override
+            public WindowInsetsCompat onApplyWindowInsets(View v, WindowInsetsCompat insets) {
+                Insets bars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+                int bottomPad = Math.max(bars.bottom, xmlBottom);
+                v.setPadding(xmlLeft, 0, xmlRight, bottomPad);
+                return insets;
+            }
+        });
+        ViewCompat.requestApplyInsets(keyboardContainer);
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        WindowCompat.setDecorFitsSystemWindows(getWindow(), true);
 
         history = new History(this);
         adapter = new HistoryAdapter(this, history);

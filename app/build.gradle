@@ -4,12 +4,12 @@ plugins {
 
 android {
     namespace 'ua.naiksoftware.aritymod'
-    compileSdk 34
+    compileSdk 36
 
     defaultConfig {
         applicationId "ua.naiksoftware.aritymod"
         minSdk 21
-        targetSdk 34
+        targetSdk 36
         versionCode 39
         versionName "1.45"
     }
