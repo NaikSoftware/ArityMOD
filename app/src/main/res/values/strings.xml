@@ -2,7 +2,7 @@
 
 <resources>
 
-    <string name="app_name">ArityMOD</string>
+    <string name="app_name">Arity Calculator</string>
     <string name="user_defs">User definitions</string>
     <string name="help">Help</string>
     <string name="settings">Settings</string>
