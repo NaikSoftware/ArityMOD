@@ -6,7 +6,9 @@
     <ListView
         android:id="@android:id/list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent"
+        android:divider="?attr/colorOutlineVariant"
+        android:dividerHeight="1dp" />
 
     <TextView
         android:id="@android:id/empty"
@@ -14,6 +16,7 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:text="@string/empty"
-        android:textSize="25sp" />
+        android:textAppearance="?attr/textAppearanceTitleMedium"
+        android:textColor="?attr/colorOnSurfaceVariant" />
 
 </FrameLayout>

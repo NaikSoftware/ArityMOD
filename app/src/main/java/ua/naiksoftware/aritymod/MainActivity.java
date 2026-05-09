@@ -21,6 +21,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
 import org.javia.arity.Complex;
 import org.javia.arity.Function;
@@ -251,7 +252,9 @@ public class MainActivity extends ThemedActivity implements TextWatcher,
         if (key.equals("quality")) {
             useHighQuality3d = prefs.getString(key, "high").equals("high");
         } else if (key.equals("dark_theme")) {
-            finish();
+            AppCompatDelegate.setDefaultNightMode(prefs.getBoolean("dark_theme", false)
+                    ? AppCompatDelegate.MODE_NIGHT_YES
+                    : AppCompatDelegate.MODE_NIGHT_NO);
         }
     }
 

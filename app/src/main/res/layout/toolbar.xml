@@ -4,18 +4,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="wrap_content"
-    android:layout_width="match_parent">
+    android:layout_width="match_parent"
+    android:fitsSystemWindows="true"
+    app:liftOnScroll="false">
 
-    <androidx.appcompat.widget.Toolbar
+    <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
+        android:layout_height="?attr/actionBarSize"
         app:logo="@drawable/icon"
         app:title="@string/app_name"
-        app:titleTextColor="@color/textPrimary"
-        tools:context=".MainActivity">
+        tools:context=".MainActivity" />
 
-    </androidx.appcompat.widget.Toolbar>
 </com.google.android.material.appbar.AppBarLayout>
