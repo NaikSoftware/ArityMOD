@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
-import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.Editable;
@@ -14,7 +13,6 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -23,6 +21,11 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.graphics.Insets;
+import androidx.core.view.OnApplyWindowInsetsListener;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
 import org.javia.arity.Complex;
 import org.javia.arity.Function;
 import org.javia.arity.FunctionAndName;
@@ -131,32 +134,46 @@ public class MainActivity extends ThemedActivity implements TextWatcher,
         input.addTextChangedListener(this);
         input.setEditableFactory(new CalculatorEditable.Factory());
 
-        if (Build.VERSION.SDK_INT > 10) {// for greater 4.x
-            input.setTextIsSelectable(true);
-        } else {                         // hide keyboard for less 4.x
-            input.setInputType(0);
-        }
+        input.setTextIsSelectable(true);
+        input.setShowSoftInputOnFocus(false);
 
         changeInput(history.getText());
         if (oldText != null) {
             input.setText(oldText);
         }
         input.requestFocus();
-        InputMethodManager inputManager
-                = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-        inputManager.hideSoftInputFromWindow(
-                this.getCurrentFocus().getWindowToken(), InputMethodManager.RESULT_UNCHANGED_HIDDEN);
         graphView.setOnClickListener(this);
         graph3dView.setOnClickListener(this);
         if (historyView != null) {
             historyView.setAdapter(adapter);
             historyView.setOnItemClickListener(this);
         }
+        applyKeyboardInsets();
+    }
+
+    private void applyKeyboardInsets() {
+        final View keyboardContainer = findViewById(R.id.keyboard_container);
+        if (keyboardContainer == null) return;
+        final int xmlLeft = keyboardContainer.getPaddingLeft();
+        final int xmlRight = keyboardContainer.getPaddingRight();
+        final int xmlBottom = keyboardContainer.getPaddingBottom();
+        ViewCompat.setOnApplyWindowInsetsListener(keyboardContainer, new OnApplyWindowInsetsListener() {
+            @Override
+            public WindowInsetsCompat onApplyWindowInsets(View v, WindowInsetsCompat insets) {
+                Insets bars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+                int bottomPad = Math.max(bars.bottom, xmlBottom);
+                v.setPadding(xmlLeft, 0, xmlRight, bottomPad);
+                return insets;
+            }
+        });
+        ViewCompat.requestApplyInsets(keyboardContainer);
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        WindowCompat.setDecorFitsSystemWindows(getWindow(), true);
 
         history = new History(this);
         adapter = new HistoryAdapter(this, history);

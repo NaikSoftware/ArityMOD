@@ -39,4 +39,6 @@
     <color name="md_inverse_on_surface">#F2EFF4</color>
     <color name="md_inverse_primary">#B3C5FF</color>
     <color name="md_scrim">#000000</color>
+
+    <color name="md_divider_subtle">#14000000</color>
 </resources>

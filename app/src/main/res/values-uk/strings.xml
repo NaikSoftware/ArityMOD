@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">ArityMOD</string>
+    <string name="app_name">Arity Calculator</string>
     <string name="user_defs">Змінні</string>
     <string name="help">Допомога</string>
     <string name="settings">Налаштування</string>

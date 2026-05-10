@@ -61,9 +61,8 @@
         android:layout_height="0dip"
         android:layout_weight="1"
         android:choiceMode="singleChoice"
-        android:divider="@null"
-        android:dividerHeight="0dp"
-        android:paddingHorizontal="8dp"
+        android:divider="@color/md_divider_subtle"
+        android:dividerHeight="1dp"
         android:scrollbarStyle="outsideInset"
         android:scrollbars="none" />
 
