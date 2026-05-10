@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
-import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.Editable;
@@ -14,7 +13,6 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -136,21 +134,14 @@ public class MainActivity extends ThemedActivity implements TextWatcher,
         input.addTextChangedListener(this);
         input.setEditableFactory(new CalculatorEditable.Factory());
 
-        if (Build.VERSION.SDK_INT > 10) {// for greater 4.x
-            input.setTextIsSelectable(true);
-        } else {                         // hide keyboard for less 4.x
-            input.setInputType(0);
-        }
+        input.setTextIsSelectable(true);
+        input.setShowSoftInputOnFocus(false);
 
         changeInput(history.getText());
         if (oldText != null) {
             input.setText(oldText);
         }
         input.requestFocus();
-        InputMethodManager inputManager
-                = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-        inputManager.hideSoftInputFromWindow(
-                this.getCurrentFocus().getWindowToken(), InputMethodManager.RESULT_UNCHANGED_HIDDEN);
         graphView.setOnClickListener(this);
         graph3dView.setOnClickListener(this);
         if (historyView != null) {
