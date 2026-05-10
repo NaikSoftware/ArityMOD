@@ -52,7 +52,7 @@
     </style>
 
     <style name="Widget.AppTheme.Toolbar" parent="Widget.Material3.Toolbar">
-        <item name="android:background">?attr/colorSurface</item>
+        <item name="android:background">@android:color/transparent</item>
         <item name="titleTextColor">?attr/colorOnSurface</item>
         <item name="subtitleTextColor">?attr/colorOnSurfaceVariant</item>
         <item name="titleTextAppearance">@style/TextAppearance.Material3.TitleLarge</item>
